@@ -1,9 +1,3 @@
-// =====================================================================
-// netlify/functions/_shared.js
-// Kode yang DIPAKAI BERSAMA oleh semua fungsi backend lain.
-// Ini BUKAN endpoint sendiri, cuma "gudang alat" internal.
-// =====================================================================
-
 const crypto = require('crypto');
 const { createClient } = require('@supabase/supabase-js');
 
@@ -41,7 +35,7 @@ function verifyTelegramInitData(initData) {
 
   const dataCheckArr = [];
   for (const [key, value] of [...urlParams.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
-    dataCheckArr.push(${key}=${value});
+    dataCheckArr.push(key + '=' + value);
   }
   const dataCheckString = dataCheckArr.join('\n');
 
